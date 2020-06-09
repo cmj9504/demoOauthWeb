@@ -8,7 +8,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Enumeration;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -27,7 +30,7 @@ public class HttpUtile<T> {
 		this.entity = entity;
 	}
 	
-	public String getCodeExec() throws Exception{
+	public String getHttpRequestExec() throws Exception{
 		URL url = new URL(urlStr);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestMethod("GET");
@@ -82,5 +85,15 @@ public class HttpUtile<T> {
 
 	public void setParams(Map<String, String> params) {
 		this.params = params;
+	}
+	
+	public void checkParams(HttpServletRequest request) {
+		Enumeration<String> params = request.getParameterNames();
+		System.out.println("----------------------------");
+		while (params.hasMoreElements()){
+		    String name = (String)params.nextElement();
+		    System.out.println(name + " : " +request.getParameter(name));
+		}
+		System.out.println("----------------------------");
 	}
 }

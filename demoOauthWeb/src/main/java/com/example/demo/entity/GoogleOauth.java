@@ -41,7 +41,7 @@ public class GoogleOauth {
 	
 	private String code;
 	
-	public Map<String, String> getGoogleOauthCodeParmas() {
+	public Map<String, String> getOauthCodeParmas() {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("scope", getScope());
 		params.put("access_type", getAccess_type());

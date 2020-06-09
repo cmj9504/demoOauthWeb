@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <script type="text/javascript">
 	function googleOauth(){
 		window.location = "getGoogleOauthCode";
 	}
+	function naverOauth(){
+		window.location = "getNaverOauthCode";
+	}
 </script>
 </head>
 <body>
-	<a href="#" onclick="googleOauth()">google_login</a><br/>
+	<a href="#" onclick="googleOauth()">구글 로그인</a><br/>
+	<a href="#" onclick="naverOauth()">네이버 로그인</a><br/>
 </body>
 </html>
