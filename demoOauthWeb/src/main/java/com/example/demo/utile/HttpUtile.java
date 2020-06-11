@@ -73,12 +73,16 @@ public class HttpUtile<T> {
 
 	public String getAllParam() throws Exception {
 		StringBuilder result = new StringBuilder();
-		 
+		int Cnt = 0;
         for (Map.Entry<String, String> entry : params.entrySet()) {
+          ++Cnt;
           result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
           result.append("=");
           result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-          result.append("&");
+          
+          if(Cnt < params.entrySet().size()) {
+        	  result.append("&");
+          }
         }
 		return result.toString();
 	}
